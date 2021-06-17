@@ -1,4 +1,4 @@
-import {getKeyData} from '../src/client/js/app';
+import { getKeyData } from '../src/client/js/app';
 
 const dotenv = require('dotenv');
 // Please change the path here, for me it's not working without giving the path

@@ -1,12 +1,12 @@
-import {gettingWeatherData} from "../src/client/js/app";
-// import {describe, expect} from "@jest/globals";
+import {getKeyData} from '../src/client/js/app';
 
+const dotenv = require('dotenv');
+// Please change the path here, for me it's not working without giving the path
+dotenv.config({ path: "/home/abhikumar/gitWorkSpace/Travel-App/.env" });
 
-describe('Testing gettingWeatherData function', () => {
-    test('It should return true because the function is defined', () => {
-        expect(gettingWeatherData).toBeDefined();
-    });
-    test('It should return true as gettingWeatherData is a function', () => {
-        expect(typeof gettingWeatherData).toBe('function');
-    });
+describe("Testing to check the key fetching from Server", () => {
+    test("Test 'getKeyData' function to return api key", () => {
+        const output = process.env.GEONAME_USERNAME
+        expect(getKeyData()).resolves.toBe(output);
+    })
 });
