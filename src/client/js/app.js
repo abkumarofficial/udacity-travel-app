@@ -26,6 +26,11 @@ const gettingWeatherData = async (event) => {
         element.remove();
         dataAdded = false;
     }
+    const pleaseWait = document.createElement("div");
+    pleaseWait.textContent = "Please Wait...";
+    const appElement = document.getElementById('app');
+    pleaseWait.id = "pleaseWait";
+    appElement.appendChild(pleaseWait)
     // check what text was put into the form field
     let place = document.getElementById('place').value;
     enteredPlace = place;
@@ -94,13 +99,19 @@ const gettingWeatherData = async (event) => {
                     }
                 }
                 if (!dateFound) {
+                    const element = document.getElementById('pleaseWait');
+                    element.remove();
                     alert("Please enter departure date which is within 16 days from today");
                 }
             } else {
+                const element = document.getElementById('pleaseWait');
+                element.remove();
                 alert("Could not fetch Weather Data ,Please try again!");
                 return;
             }
         } else {
+            const element = document.getElementById('pleaseWait');
+            element.remove();
             alert('Place Could not be found, please try again');
             return;
         }
@@ -124,9 +135,13 @@ const gettingWeatherData = async (event) => {
             }
             // console.log(pictureURL)
         } else {
+            const element = document.getElementById('pleaseWait');
+            element.remove();
             alert("wow, we could not find any pics for this place.... going to moon, are we ?")
         }
     } else {
+        const element = document.getElementById('pleaseWait');
+        element.remove();
         alert("Invalid Data Entered");
         return;
     }
@@ -134,6 +149,8 @@ const gettingWeatherData = async (event) => {
 }
 
 const makeDataforUI = () => {
+    const element = document.getElementById('pleaseWait');
+    element.remove();
     const data = {
         "enteredPlace": `Place Name : ${enteredPlace}`,
         "temperature" : `Temerature will be ${temperature} Celcius`,
@@ -151,17 +168,19 @@ const makeDataforUI = () => {
         newDiv.id = "addedElement";
         dataAdded = true;
       }
-      const oneElement = document.getElementById('one');
+      const oneElement = document.getElementById('app');
       oneElement.appendChild(newDiv)
 }
 
 // Getting API keys from the server
 const getKeyData = async () => {
-    const gotKey = await fetch('http://172.16.160.128:3000/needkey');
+    const gotKey = await fetch('http://localhost:3000/needkey');
     try {
         const key = await gotKey.text();
         return key;
     } catch (error) {
+        const element = document.getElementById('pleaseWait');
+        element.remove();
         console.log("Error while getting key:", error)
     }
 }
