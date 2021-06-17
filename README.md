@@ -17,11 +17,12 @@ Set up webpack config files for development and production environments.  Downlo
 
 ```bash
 npm run build-dev
+or
 npm run build-prod
 npm run start
 ```
 
-Navigate to http://localhost:8080/ in your browser.
+for Prod Navigate to http://localhost:3000/ in your browser.
 
 
 ## Usage
