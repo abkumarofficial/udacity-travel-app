@@ -1,12 +1,11 @@
 var path = require('path')
 const express = require('express')
-// const mockAPIResponse = require('./mockAPI.js')
-const { config } = require('dotenv')
+// const { config } = require('dotenv')
 
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
 // Please Provide Path here, It was not working for me without providing path
-dotenv.config({ path: "/home/abhikumar/gitWorkSpace/Travel-App/.env" });
+// dotenv.config({ path: "/home/abhikumar/gitWorkSpace/Travel-App/.env" });
 
 // const applicationKey = process.env.API_KEY
 // const geonameUsername = process.env.GEONAME_USERNAME;
